@@ -16,7 +16,12 @@
 
             .p-menuitem-link {
                 padding: 0.5rem 0.75rem;
-
+                &:hover {
+                    background-color: var(--purple-2);
+                    .p-menuitem-text{
+                        color: rgb(247, 240, 240);
+                    }
+                }
                 .p-menuitem-text {
                     color: var(--light-0);
                 }

@@ -6,7 +6,7 @@ import { dockItems } from 'src/app/shared/config/dock-items';
 @Component({
   selector: 'app-dock',
   templateUrl: './dock.component.html',
-  styleUrls: ['./dock.component.css'],
+  styleUrls: ['./dock.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DockComponent implements OnInit {
