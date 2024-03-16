@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MenuItem, TooltipOptions } from 'primeng/api';
+import { LAUNCHPAD } from 'src/app/shared/config/applications';
 import { dockItems } from 'src/app/shared/config/dock-items';
 
 @Component({
@@ -9,6 +10,9 @@ import { dockItems } from 'src/app/shared/config/dock-items';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DockComponent implements OnInit {
+
+  @Output() launchpadOpened = new EventEmitter();
+
   dockItems: MenuItem[] = [];
 
   defaultToolTipOptions: TooltipOptions = {
@@ -34,7 +38,9 @@ export class DockComponent implements OnInit {
           ...this.defaultToolTipOptions
         },
         command: () => {
-          console.log('Dock item clicked');
+          if(dockItem === LAUNCHPAD){
+            this.launchpadOpened.emit();
+          }
         }
       }
     })
